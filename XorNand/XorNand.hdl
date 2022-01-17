@@ -12,11 +12,5 @@ CHIP XorNand {
     Nand(a=b, b=b, out=notb); // Not(b)
     Nand(a=a, b=notb, out=y);
 
-    Nand(a=x, b=x, out=s); // Not(x)
-    Nand(a=s, b=s, out=nots);
-
-    Nand(a=y, b=y, out=t); // Not(y)
-    Nand(a=t, b=t, out=nott);
-
-    Nand(a=nots, b=nott, out=out);
+    Nand(a=x, b=y, out=out);
 }
