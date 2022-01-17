@@ -1,0 +1,12 @@
+/** NANDだけでANDゲート **/
+
+CHIP And {
+  // ヘッダーセクション
+  IN a, b;
+  OUT out;
+
+  // パーツセクション
+  PARTS:
+    Nand(a=a, b=b, out=nandout);
+    Nand(a=nandout, b=nandout, out=out);
+}
