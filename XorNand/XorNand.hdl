@@ -1,0 +1,22 @@
+/** Exclusive-or gate. out = a xor b */
+CHIP XorNand {
+  // ヘッダーセクション
+  IN a, b;
+  OUT out;
+
+  // パーツセクション
+  PARTS:
+    Nand(a=a, b=a, out=nota); // Not(a)
+    Nand(a=nota, b=b, out=x);
+
+    Nand(a=b, b=b, out=notb); // Not(b)
+    Nand(a=a, b=notb, out=y);
+
+    Nand(a=x, b=x, out=s); // Not(x)
+    Nand(a=s, b=s, out=nots);
+
+    Nand(a=y, b=y, out=t); // Not(y)
+    Nand(a=t, b=t, out=nott);
+
+    Nand(a=nots, b=nott, out=out);
+}
