@@ -1,0 +1,13 @@
+/** NANDだけでORゲート **/
+
+CHIP Or {
+  // ヘッダーセクション
+  IN a, b;
+  OUT out;
+
+  // パーツセクション
+  PARTS:
+    Nand(a=a, b=a, out=nota); // Not(in=a, out=nota);
+    Nand(a=b, b=b, out=notb); // Not(in=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
+}
