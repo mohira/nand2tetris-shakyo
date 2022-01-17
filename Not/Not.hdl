@@ -1,0 +1,11 @@
+/** Notゲート **/
+
+CHIP Not {
+  // ヘッダーセクション
+  IN a;
+  OUT out;
+
+  // パーツセクション
+  PARTS:
+    Nand(a=a, b=a, out=out);
+}
