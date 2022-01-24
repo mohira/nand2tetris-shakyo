@@ -1,0 +1,21 @@
+CHIP Demultiplexer {
+  // ヘッダーセクション
+  IN in, s;
+  OUT a, b;
+
+  // パーツセクション
+  PARTS:
+    // a
+    Nand(a=s, b=s, out=nots);
+    Nand(a=in, b=nots, out=x);
+    Nand(a=x, b=x, out=a);
+    // b
+    Nand(a=in, b=s, out=y);
+    Nand(a=y, b=y, out=b);
+
+// https://genkai-io.hatenablog.jp/entry/2018/11/09/150754
+//   Nand(a=in, b=sel, out=w1);
+//   Nand(a=in, b=w1, out=w2);
+//   Nand(a=w2, b=w2, out=a);
+//   Nand(a=w1, b=w1, out=b);
+}
