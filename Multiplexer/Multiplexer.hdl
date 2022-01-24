@@ -1,0 +1,14 @@
+CHIP Multiplexer {
+  // ヘッダーセクション
+  IN s, a, b;
+  OUT out;
+
+  // パーツセクション
+  PARTS:
+    Nand(a=s, b=s, out=nots);
+    Nand(a=a, b=nots, out=x);
+
+    Nand(a=s, b=b, out=y);
+
+    Nand(a=x, b=y, out=out);
+}
