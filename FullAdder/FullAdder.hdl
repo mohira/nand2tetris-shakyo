@@ -1,0 +1,17 @@
+CHIP FullAdder {
+  // ヘッダーセクション
+  IN a, b, c;
+  OUT car, sum;
+
+  // パーツセクション
+  PARTS:
+    Xor(a=a, b=b, out=s0);
+    Xor(a=c, b=s0, out=sum);
+
+    And(a=c, b=s0, out=c1);
+
+    And(a=a, b=b, out=c0);
+
+    Or(a=c1, b=c0, out=car);
+
+}
