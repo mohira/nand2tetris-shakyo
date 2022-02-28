@@ -1,0 +1,10 @@
+CHIP HalfAdder {
+  // ヘッダーセクション
+  IN a, b;
+  OUT c, s;
+
+  // パーツセクション
+  PARTS:
+    And(a=a, b=b, out=c);
+    Xor(a=a, b=b, out=s);
+}
